@@ -1,9 +1,23 @@
+using Microsoft.EntityFrameworkCore;
+using Mission06_Henstrom.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddDbContext<MovieContext>(options =>
+{
+    options.UseSqlite(builder.Configuration["ConnectionStrings:MoviesConnection"]);
+});
+
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<MovieContext>();
+    db.Database.Migrate();
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

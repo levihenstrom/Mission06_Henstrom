@@ -1,4 +1,62 @@
 @{
-    ViewData["Title"] = "The Joel Hilton Film Collection";
+    ViewData["Title"] = "Movie Entry";
 }
-<h2>title</h2>
+@model Movie
+
+<div class="page">
+    <div class="card-panel">
+        <div class="page-header">
+            <h1 class="display-4">Movie Entry</h1>
+            <p class="page-subtitle">Add a worthy film to the collection.</p>
+        </div>
+        
+        <form class="movie-form" method="post">
+            <div asp-validation-summary="All"></div>
+            <label asp-for="Category">Category</label>
+            <input asp-for="Category"/>
+            <span asp-validation-for="Category"></span>
+            <br/>
+            <label asp-for="Title">Title</label>
+            <input asp-for="Title"/>
+            <span asp-validation-for="Title"></span>
+            <br/>
+            <label asp-for="Year">Year</label>
+            <input asp-for="Year"/>
+            <span asp-validation-for="Year"></span>
+            <br/>
+            <label asp-for="Director">Director</label>
+            <input asp-for="Director"/>
+            <span asp-validation-for="Director"></span>
+            <br/>
+            <label asp-for="Rating">Rating</label>
+            <select asp-for="Rating">
+                <option value="G">G</option>
+                <option value="PG">PG</option>
+                <option value="PG-13">PG-13</option>
+                <option value="R">R</option>
+            </select>
+            <span asp-validation-for="Rating"></span>
+            <br/>
+            <label asp-for="Edited">Edited?</label>
+            <select asp-for="Edited">
+                <option value="">--</option>
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+            <br/>
+            <label asp-for="Lent">Lent to</label>
+            <input asp-for="Lent"/>
+            <br/>
+            <label asp-for="Notes">Notes</label>
+            <input asp-for="Notes" maxlength="25"/>
+            <span asp-validation-for="Notes"></span>
+            <br/>
+            <button class="primary-btn" type="submit">Enter Movie</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mission06_Henstrom")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bfea5d7355f49da959320e5e8d268fcf22089ff5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1570a6a3d20dff8a61c497e7e1e4d9612274573d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mission06_Henstrom")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mission06_Henstrom")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
