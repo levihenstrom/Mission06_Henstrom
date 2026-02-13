@@ -6,7 +6,8 @@
 
 <div class="page">
     <div class="card-panel">
-        <h2 class="display-4">@Model.Title (@Model.Year) Successfully added to database.</h2>
-        <a class="primary-btn link-btn" asp-area="" asp-controller="Home" asp-action="EnterMovie">Enter Another Movie</a>
+        <h2 class="display-4">@Model.Title (@Model.Year) successfully added to database.</h2>
+        <a class="primary-btn link-btn" asp-controller="Home" asp-action="EnterMovie">Enter Another Movie</a>
+        <a class="primary-btn link-btn" asp-controller="Home" asp-action="MovieList">View Movie List</a>
     </div>
 </div>

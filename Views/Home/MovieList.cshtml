@@ -1,0 +1,53 @@
+@model List<Movie>
+
+@{
+    ViewData["Title"] = "Movie List";
+}
+
+<div class="page">
+    <div class="card-panel movie-list-panel">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h1 class="display-6 mb-0">Movie Collection</h1>
+            <a asp-controller="Home" asp-action="EnterMovie" class="btn btn-primary">Add Movie</a>
+        </div>
+
+        <div class="table-responsive movie-table-wrap">
+            <table class="table table-striped table-bordered table-hover table-sm align-middle mb-0">
+                <thead class="table-dark">
+                <tr>
+                    <th>Category</th>
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>Director</th>
+                    <th>Rating</th>
+                    <th>Edited</th>
+                    <th>Copied To Plex</th>
+                    <th>Lent To</th>
+                    <th>Notes</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var movie in Model)
+                {
+                    <tr>
+                        <td>@movie.Category?.CategoryName</td>
+                        <td>@movie.Title</td>
+                        <td>@movie.Year</td>
+                        <td>@movie.Director</td>
+                        <td>@movie.Rating</td>
+                        <td>@(movie.Edited ? "Yes" : "No")</td>
+                        <td>@(movie.CopiedToPlex ? "Yes" : "No")</td>
+                        <td>@movie.LentTo</td>
+                        <td>@movie.Notes</td>
+                        <td class="text-nowrap text-center">
+                            <a asp-controller="Home" asp-action="Edit" asp-route-id="@movie.MovieId" class="btn btn-sm btn-warning">Edit</a>
+                            <a asp-controller="Home" asp-action="Delete" asp-route-id="@movie.MovieId" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
